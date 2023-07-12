@@ -31,6 +31,10 @@ func (c *Container) GetPkgCommand(command string) []string {
 		return GetXbpsPkgCommand(command)
 	case SWUPD:
 		return GetSwupdPkgCommand(command)
+	case DEB:
+		return GetDebPkgCommand(command)
+	case PIKA:
+		return GetPikaPkgCommand(command)
 	default:
 		return nil
 	}
@@ -54,6 +58,10 @@ func GetDefaultPkgCommand(command string) []string {
 		return GetXbpsPkgCommand(command)
 	case "swupd":
 		return GetSwupdPkgCommand(command)
+	case "pika":
+		return GetPikaPkgCommand(command)
+	case "deb":
+		return GetDebPkgCommand(command)
 	default:
 		return []string{"echo", pkgmanager + " is not implemented yet!"}
 	}
@@ -295,6 +303,10 @@ func (c *Container) IsPackageInstalled(pkgname string) (bool, error) {
 	case SWUPD:
 		query_cmd = "LANG=C swupd search"
         extra = " | grep -F \\(installed\\)"
+	case DEB:
+		query_cmd = "dpkg -s"
+	case PIKA:
+		query_cmd = "dpkg -s"
 	default:
 		return false, errors.New("Cannot query package from unknown container")
 	}
@@ -331,6 +343,10 @@ func (c *Container) BinariesProvidedByPackage(pkgname string) ([]string, error) 
 		query_cmd = "xbps-query -f %s | grep /usr/bin/ | cut -f 4 -d /"
 	case SWUPD:
 		query_cmd = "sudo swupd search-file -Bm %s | grep /usr/bin/ | cut -f 4 -d / | cut -f 1 -d ,"
+	case DEB:
+		query_cmd = "dpkg -L %s | grep /usr/bin/ | cut -f 4 -d /"
+	case P_sigmask:
+		query_cmd = "dpkg -L %s | grep /usr/bin/ | cut -f 4 -d /"
 	default:
 		return []string{}, errors.New("Cannot query package from unknown container")
 	}

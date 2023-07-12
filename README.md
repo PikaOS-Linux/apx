@@ -52,13 +52,15 @@ Additional Commands:
 
 Flags:
   -v, --verbose       show more detailed output
-      --apt           Install packages from the Ubuntu repository.
-      --aur           Install packages from the AUR (Arch User Repository).
-      --dnf           Install packages from the Fedora's DNF (Dandified YUM) repository.
-      --apk           Install packages from the Alpine repository.
-      --zypper        Install packages from the OpenSUSE repository.
-      --xbps          Install packages from the Void (Linux) repository.
-      --nix           Install packages from the Nixpkgs (Nix packages) repository.
+      --pika			    Install packages from the Pika repository.
+	    --apk           Install packages from the Alpine repository.
+	    --apt           Install packages from the Ubuntu repository.
+	    --aur           Install packages from the AUR (Arch User Repository).
+	    --dnf           Install packages from the Fedora's DNF (Dandified YUM) repository.
+	    --zypper        Install packages from the openSUSE repository.
+	    --xbps          Install packages from the Void (Linux) repository.
+	    --swupd 		Install packages from the Clear Linux* store.
+      --deb			Install packages from the Debian repository.
   -n, --name string   Apply to custom container with this name.
   -h, --help          help for apx
       --version       version for apx

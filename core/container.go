@@ -33,6 +33,8 @@ const (
 	ZYPPER ContainerType = iota // 4
 	XBPS   ContainerType = iota // 5
 	SWUPD  ContainerType = iota // 6
+	DEB   ContainerType = iota // 7
+	PIKA  ContainerType = iota // 8
 )
 
 // How many container types we offer. Must be always the same
@@ -71,6 +73,10 @@ func (c *Container) GetContainerImage() (image string, err error) {
 		return "ghcr.io/void-linux/void-linux:latest-full-x86_64", nil
 	case SWUPD:
 		return "docker.io/library/clearlinux:latest", nil
+	case DEB:
+		return "docker.io/library/debian:sid", nil
+	case PIKA:
+		return "ghcr.io/pikaos-linux/pika-package-container:latest", nil
 	default:
 		image = ""
 		err = errors.New("can't retrieve image for unknown container")
@@ -95,6 +101,10 @@ func (c *Container) GetContainerName() (name string) {
 		cn.WriteString("apx_managed_xbps")
 	case SWUPD:
 		cn.WriteString("apx_managed_swupd")
+	case DEB:
+		cn.WriteString("apx_managed_deb")
+	case PIKA:
+		cn.WriteString("apx_managed_pika")
 	default:
 		log.Fatal(fmt.Errorf("unspecified container type"))
 	}

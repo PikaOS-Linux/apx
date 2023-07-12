@@ -61,6 +61,7 @@ Available Commands:
 
 Global Flags:
 
+		--pika			Install packages from the Pika repository.
 	    --apk           Install packages from the Alpine repository.
 	    --apt           Install packages from the Ubuntu repository.
 	    --aur           Install packages from the AUR (Arch User Repository).
@@ -68,6 +69,7 @@ Global Flags:
 	    --zypper        Install packages from the openSUSE repository.
 	    --xbps          Install packages from the Void (Linux) repository.
 	    --swupd 		Install packages from the Clear Linux* store.
+		--deb			Install packages from the Debian repository.
 	-h, --help          help for apx
 	-n, --name string   Create or use custom container with this name.
 	-v, --version       version for apx
