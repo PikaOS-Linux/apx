@@ -9,3 +9,10 @@ override_dh_auto_build:
 	mkdir -p obj-x86_64-linux-gnu/src/${DH_GOPKG}               ; \
 	cp -r locales obj-x86_64-linux-gnu/src/${DH_GOPKG}          ; \
 	dh_auto_build
+override_dh_install:
+	dh_install
+	mkdir -p debian/apx/etc/apx
+	install -Dm644 config/config.json debian/apx/etc/apx/config.json
+	mkdir -p /builds/apx/usr/share/apx
+	distrobox/install --prefix /builds/apx/usr/share/apx
+	cp -rvf /builds/apx debian/
