@@ -403,7 +403,7 @@ func (c *Container) BinariesProvidedByPackage(pkgname string) ([]string, error) 
 		query_cmd = "sudo swupd search-file -Bm %s | grep /usr/bin/ | cut -f 4 -d / | cut -f 1 -d ,"
 	case DEB:
 		query_cmd = "dpkg -L %s | grep /usr/bin/ | cut -f 4 -d /"
-	case P_sigmask:
+	case PIKA:
 		query_cmd = "dpkg -L %s | grep /usr/bin/ | cut -f 4 -d /"
 	default:
 		return []string{}, errors.New("Cannot query package from unknown container")
