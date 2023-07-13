@@ -96,6 +96,64 @@ func GetAptPkgCommand(command string) []string {
 	}
 }
 
+func GetPikaPkgCommand(command string) []string {
+	bin := "apt"
+
+	switch command {
+	case "autoremove":
+		return []string{"sudo", bin, "autoremove"}
+	case "clean":
+		return []string{"sudo", bin, "clean"}
+	case "install":
+		return []string{"sudo", bin, "install"}
+	case "list":
+		return []string{"sudo", bin, "list"}
+	case "purge":
+		return []string{"sudo", bin, "purge"}
+	case "remove":
+		return []string{"sudo", bin, "remove"}
+	case "search":
+		return []string{"sudo", bin, "search"}
+	case "show":
+		return []string{"sudo", bin, "show"}
+	case "update":
+		return []string{"sudo", bin, "update"}
+	case "upgrade":
+		return []string{"sudo", bin, "upgrade"}
+	default:
+		return nil
+	}
+}
+
+func GetDebPkgCommand(command string) []string {
+	bin := "apt"
+
+	switch command {
+	case "autoremove":
+		return []string{"sudo", bin, "autoremove"}
+	case "clean":
+		return []string{"sudo", bin, "clean"}
+	case "install":
+		return []string{"sudo", bin, "install"}
+	case "list":
+		return []string{"sudo", bin, "list"}
+	case "purge":
+		return []string{"sudo", bin, "purge"}
+	case "remove":
+		return []string{"sudo", bin, "remove"}
+	case "search":
+		return []string{"sudo", bin, "search"}
+	case "show":
+		return []string{"sudo", bin, "show"}
+	case "update":
+		return []string{"sudo", bin, "update"}
+	case "upgrade":
+		return []string{"sudo", bin, "upgrade"}
+	default:
+		return nil
+	}
+}
+
 func GetAurPkgCommand(command string) []string {
 	bin := "yay"
 
