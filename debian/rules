@@ -16,3 +16,4 @@ override_dh_install:
 	mkdir -p /builds/apx/usr/share/apx
 	distrobox/install --prefix /builds/apx/usr/share/apx
 	cp -rvf /builds/apx debian/
+	mv debian/apx/usr/share/apx/bin/distrobox* debian/apx/usr/share/apx/
